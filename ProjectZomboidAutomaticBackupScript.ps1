@@ -19,7 +19,7 @@ While (((Get-Process | Where-Object {$_.name -ieq 'ProjectZomboid64'}).count -ie
             Write-Host "Creating a new backup..."  -ForegroundColor Cyan
             $ParentBackupFolder = (New-Item -Path "$($BackupDest)\$($CurrDateTime)" -ItemType Directory -Force -ErrorAction Stop).Parent.FullName
             Get-ChildItem -Path $BackupSrc -depth 1 | Where-Object {$_.FullName -inotlike "$ParentBackupFolder*" } | Copy-Item -Recurse -Force -Destination "$($BackupDest)\$($CurrDateTime)" -ErrorAction SilentlyContinue
-            Write-Host "Created backup of saves at $($BackupDest)."  -ForegroundColor Green
+            Write-Host "Backup complete."  -ForegroundColor Green
             Start-Sleep -Seconds 60
             Continue
 
